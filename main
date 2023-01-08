@@ -26,18 +26,6 @@ function library:CreateContainer()
     local ImageLabel = Instance.new("ImageLabel")
     local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
-    uis.InputBegan:Connect(function(key)
-        if key.KeyCode == Enum.KeyCode.RightAlt then
-            spawn(function()
-                for i,v in pairs(NightCorev2:GetChildren()) do
-                    if v.Name == "Page" then
-                        v.Visible = not v.Visible
-                    end
-                end
-            end)
-        end
-    end)
-
     NightCorev2.Name = "NightCore v2"
     NightCorev2.Parent = (game:GetService("CoreGui") or gethui())
     
@@ -49,6 +37,18 @@ function library:CreateContainer()
     Container.Position = UDim2.new(0, 0, -0.154078543, 0)
     Container.Size = UDim2.new(1.00224555, 0, 1.1540786, 0)
     Container.ZIndex = 0
+
+    uis.InputBegan:Connect(function(key)
+        if key.KeyCode == Enum.KeyCode.RightAlt then
+            spawn(function()
+                for i,v in pairs(Contrainer:GetChildren()) do
+                    if v.Name == "Page" then
+                        v.Visible = not v.Visible
+                    end
+                end
+            end)
+        end
+    end)
     
     Modal.Name = "Modal"
     Modal.Parent = Container
