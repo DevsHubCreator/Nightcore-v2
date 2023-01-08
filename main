@@ -37,6 +37,17 @@ function library:CreateContainer()
     Container.Position = UDim2.new(0, 0, -0.154078543, 0)
     Container.Size = UDim2.new(1.00224555, 0, 1.1540786, 0)
     Container.ZIndex = 0
+    
+    Modal.Name = "Modal"
+    Modal.Parent = Container
+    Modal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Modal.BorderSizePixel = 0
+    Modal.Position = UDim2.new(0, 0, 0.100000001, 0)
+    Modal.Modal = false
+    Modal.Font = Enum.Font.SourceSans
+    Modal.Text = ""
+    Modal.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Modal.TextSize = 14.000
 
     uis.InputBegan:Connect(function(key)
         if key.KeyCode == Enum.KeyCode.RightAlt then
@@ -46,20 +57,10 @@ function library:CreateContainer()
                         v.Visible = not v.Visible
                     end
                 end
+                Modal.Modal = not Modal.Modal
             end)
         end
     end)
-    
-    Modal.Name = "Modal"
-    Modal.Parent = Container
-    Modal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Modal.BorderSizePixel = 0
-    Modal.Position = UDim2.new(0, 0, 0.100000001, 0)
-    Modal.Modal = true
-    Modal.Font = Enum.Font.SourceSans
-    Modal.Text = ""
-    Modal.TextColor3 = Color3.fromRGB(0, 0, 0)
-    Modal.TextSize = 14.000
     
     Watermark.Name = "Watermark"
     Watermark.Parent = Container
