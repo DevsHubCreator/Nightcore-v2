@@ -41,7 +41,7 @@ function library:CreateContainer()
     uis.InputBegan:Connect(function(key)
         if key.KeyCode == Enum.KeyCode.RightAlt then
             spawn(function()
-                for i,v in pairs(Contrainer:GetChildren()) do
+                for i,v in pairs(Container:GetChildren()) do
                     if v.Name == "Page" then
                         v.Visible = not v.Visible
                     end
@@ -316,17 +316,3 @@ function library:CreateContainer()
 end
 
 return library
-
-local main = library:CreateContainer()
-
-local page1 = main:CreatePage("Combat", 110, 0.015)
-page1:CreateToggle("Killaura",function(bool)
-    print(bool)
-end)
-page1:CreateToggle("Reach",function(bool)
-    print(bool)
-end)
-local page2 = main:CreatePage("Player", 80, 0.15)
-page2:CreateToggle("MiddleClickFriend",function(bool)
-    print(bool)
-end)
