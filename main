@@ -28,11 +28,18 @@ function library:CreateContainer()
 
     uis.InputBegan:Connect(function(key)
         if key.KeyCode == Enum.KeyCode.RightAlt then
-            NightCorev2.Enabled = not NightCorev2.Enabled
+            spawn(function()
+                for i,v in pairs(NightCorev2:GetChildren()) do
+                    if v.Name == "Page" then
+                        v.Visible = not v.Visible
+                    end
+                end
+            end)
         end
     end)
 
     NightCorev2.Name = "NightCore v2"
+    NightCorev2.Visible = false
     NightCorev2.Parent = (game:GetService("CoreGui") or gethui())
     
     Container.Name = "Container"
@@ -309,3 +316,17 @@ function library:CreateContainer()
 end
 
 return library
+
+local main = library:CreateContainer()
+
+local page1 = main:CreatePage("Combat", 110, 0.015)
+page1:CreateToggle("Killaura",function(bool)
+    print(bool)
+end)
+page1:CreateToggle("Reach",function(bool)
+    print(bool)
+end)
+local page2 = main:CreatePage("Player", 80, 0.15)
+page2:CreateToggle("MiddleClickFriend",function(bool)
+    print(bool)
+end)
