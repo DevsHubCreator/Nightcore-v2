@@ -1,0 +1,311 @@
+local uis = game:GetService("UserInputService")
+
+if game:GetService("CoreGui"):FindFirstChild("NightCore v2") then
+    game:GetService("CoreGui"):FindFirstChild("NightCore v2"):Destroy()
+end
+
+function tween(object,ti,info)
+    game:GetService("TweenService"):Create(object,TweenInfo.new(ti),info):Play()
+end
+
+local library = {}
+
+function library:CreateContainer()
+    local NightCorev2 = Instance.new("ScreenGui")
+    local Container = Instance.new("Frame")
+    local Modal = Instance.new("TextButton")
+    local Watermark = Instance.new("Frame")
+    local UIStroke = Instance.new("UIStroke")
+    local UICorner = Instance.new("UICorner")
+    local Frame = Instance.new("Frame")
+    local UIStroke_2 = Instance.new("UIStroke")
+    local UICorner_2 = Instance.new("UICorner")
+    local TextLabel = Instance.new("TextLabel")
+    local TextLabel_2 = Instance.new("TextLabel")
+    local TextLabel_3 = Instance.new("TextLabel")
+    local ImageLabel = Instance.new("ImageLabel")
+    local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+    uis.InputBegan:Connect(function(key)
+        if key.KeyCode == Enum.KeyCode.RightAlt then
+            NightCorev2.Enabled = not NightCorev2.Enabled
+        end
+    end)
+
+    NightCorev2.Name = "NightCore v2"
+    NightCorev2.Parent = (game:GetService("CoreGui") or gethui())
+    
+    Container.Name = "Container"
+    Container.Parent = NightCorev2
+    Container.BackgroundColor3 = Color3.fromRGB(242, 242, 242)
+    Container.BackgroundTransparency = 1.000
+    Container.BorderSizePixel = 0
+    Container.Position = UDim2.new(0, 0, -0.154078543, 0)
+    Container.Size = UDim2.new(1.00224555, 0, 1.1540786, 0)
+    Container.ZIndex = 0
+    
+    Modal.Name = "Modal"
+    Modal.Parent = Container
+    Modal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Modal.BorderSizePixel = 0
+    Modal.Position = UDim2.new(0, 0, 0.100000001, 0)
+    Modal.Modal = true
+    Modal.Font = Enum.Font.SourceSans
+    Modal.Text = ""
+    Modal.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Modal.TextSize = 14.000
+    
+    Watermark.Name = "Watermark"
+    Watermark.Parent = Container
+    Watermark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Watermark.BorderSizePixel = 0
+    Watermark.Position = UDim2.new(0.0156833436, 0, 0.147905737, 0)
+    Watermark.Size = UDim2.new(0, 70, 0, 70)
+    
+    UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    UIStroke.Color = Color3.fromRGB(183, 183, 183)
+    UIStroke.Thickness = 2.500
+    UIStroke.Parent = Watermark
+    
+    UICorner.CornerRadius = UDim.new(1, 0)
+    UICorner.Parent = Watermark
+    
+    Frame.Parent = Watermark
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame.BorderSizePixel = 0
+    Frame.Position = UDim2.new(0.771428525, 0, 0.2285714, 0)
+    Frame.Size = UDim2.new(0, 172, 0, 38)
+    Frame.ZIndex = 0
+    
+    UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    UIStroke_2.Color = Color3.fromRGB(183, 183, 183)
+    UIStroke_2.Thickness = 2.500
+    UIStroke_2.Parent = Frame
+    
+    UICorner_2.CornerRadius = UDim.new(0, 7)
+    UICorner_2.Parent = Frame
+    
+    TextLabel.Parent = Frame
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.BorderSizePixel = 0
+    TextLabel.Position = UDim2.new(0.122092992, 0, 0.236842155, 0)
+    TextLabel.Size = UDim2.new(0, 76, 0, 20)
+    TextLabel.Font = Enum.Font.GothamMedium
+    TextLabel.Text = "NightCore"
+    TextLabel.TextColor3 = Color3.fromRGB(97, 97, 97)
+    TextLabel.TextScaled = true
+    TextLabel.TextSize = 14.000
+    TextLabel.TextWrapped = true
+    
+    TextLabel_2.Parent = Frame
+    TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel_2.BackgroundTransparency = 1.000
+    TextLabel_2.BorderSizePixel = 0
+    TextLabel_2.Position = UDim2.new(0.563953459, 0, 0.236842111, 0)
+    TextLabel_2.Size = UDim2.new(0, 12, 0, 20)
+    TextLabel_2.Font = Enum.Font.GothamMedium
+    TextLabel_2.Text = "|"
+    TextLabel_2.TextColor3 = Color3.fromRGB(152, 152, 152)
+    TextLabel_2.TextScaled = true
+    TextLabel_2.TextSize = 14.000
+    TextLabel_2.TextWrapped = true
+    
+    TextLabel_3.Parent = Frame
+    TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel_3.BackgroundTransparency = 1.000
+    TextLabel_3.BorderSizePixel = 0
+    TextLabel_3.Position = UDim2.new(0.633720934, 0, 0.236842111, 0)
+    TextLabel_3.Size = UDim2.new(0, 56, 0, 20)
+    TextLabel_3.Font = Enum.Font.GothamMedium
+    TextLabel_3.Text = "build: 0.1"
+    TextLabel_3.TextColor3 = Color3.fromRGB(97, 97, 97)
+    TextLabel_3.TextScaled = true
+    TextLabel_3.TextSize = 14.000
+    TextLabel_3.TextWrapped = true
+    
+    ImageLabel.Parent = Watermark
+    ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ImageLabel.BackgroundTransparency = 1.000
+    ImageLabel.BorderSizePixel = 0
+    ImageLabel.Position = UDim2.new(0.142857313, 0, 0.142857313, 0)
+    ImageLabel.Size = UDim2.new(0, 50, 0, 50)
+    ImageLabel.Image = "rbxassetid://12096607625"
+    ImageLabel.ImageTransparency = 0.100
+    
+    UIAspectRatioConstraint.Parent = Watermark
+
+    local page = {}
+
+    function page:CreatePage(name,pagesize,pagepos)
+        local Page = Instance.new("Frame")
+        local UIStroke_3 = Instance.new("UIStroke")
+        local UICorner_3 = Instance.new("UICorner")
+        local Frame_2 = Instance.new("Frame")
+        local Frame_3 = Instance.new("Frame")
+        local UICorner_4 = Instance.new("UICorner")
+        local PageName = Instance.new("TextLabel")
+        local Frame_4 = Instance.new("Frame")
+        local ScrollingFrame = Instance.new("ScrollingFrame")
+        local UIPadding = Instance.new("UIPadding")
+        local UIGridLayout = Instance.new("UIGridLayout")
+
+        Page.Name = "Page"
+        Page.Parent = Container
+        Page.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Page.BorderSizePixel = 0
+        Page.Position = UDim2.new(pagepos, 0, 0.255235583, 0) -- 0.0149365272
+        Page.Size = UDim2.new(0, 152, 0, tonumber(pagesize)) -- 516
+        
+        UIStroke_3.Color = Color3.fromRGB(175, 175, 175)
+        UIStroke_3.Thickness = 2.500
+        UIStroke_3.Parent = Page
+        
+        UICorner_3.CornerRadius = UDim.new(0, 14)
+        UICorner_3.Parent = Page
+        
+        Frame_2.Parent = Page
+        Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Frame_2.BackgroundTransparency = 1.000
+        Frame_2.BorderSizePixel = 0
+        Frame_2.Size = UDim2.new(0, 152, 0, 29)
+        
+        Frame_3.Parent = Frame_2
+        Frame_3.BackgroundColor3 = Color3.fromRGB(233, 233, 233)
+        Frame_3.BorderSizePixel = 0
+        Frame_3.Size = UDim2.new(0, 152, 0, 28)
+        
+        UICorner_4.CornerRadius = UDim.new(0, 14)
+        UICorner_4.Parent = Frame_3
+        
+        PageName.Name = "PageName"
+        PageName.Parent = Frame_3
+        PageName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        PageName.BackgroundTransparency = 1.000
+        PageName.BorderSizePixel = 0
+        PageName.Position = UDim2.new(0.328947306, 0, 0.137931108, 0)
+        PageName.Size = UDim2.new(0, 51, 0, 19)
+        PageName.ZIndex = 2
+        PageName.Font = Enum.Font.GothamMedium
+        PageName.Text = name
+        PageName.TextColor3 = Color3.fromRGB(152, 148, 148)
+        PageName.TextScaled = true
+        PageName.TextSize = 14.000
+        PageName.TextWrapped = true
+        
+        Frame_4.Parent = Frame_2
+        Frame_4.BackgroundColor3 = Color3.fromRGB(233, 233, 233)
+        Frame_4.BorderSizePixel = 0
+        Frame_4.Position = UDim2.new(0, 0, 0.442554861, 0)
+        Frame_4.Size = UDim2.new(0, 152, 0, 15)
+        
+        ScrollingFrame.Parent = Frame_2
+        ScrollingFrame.Active = true
+        ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        ScrollingFrame.BackgroundTransparency = 1.000
+        ScrollingFrame.BorderSizePixel = 0
+        ScrollingFrame.Position = UDim2.new(0.00657889713, 0, 1.29758108, 0)
+        ScrollingFrame.Size = UDim2.new(0, 151, 0, 478)
+        ScrollingFrame.ScrollBarThickness = 0
+
+        UIPadding.Parent = ScrollingFrame
+        UIPadding.PaddingTop = UDim.new(0, 2)
+        
+        UIGridLayout.Parent = ScrollingFrame
+        UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        UIGridLayout.CellSize = UDim2.new(0, 144, 0, 26)
+
+        local Line = 0;
+    
+        for i,v in pairs(ScrollingFrame:GetChildren()) do
+            if v:IsA("Frame") or v:IsA("TextButton") then
+                Line += 1
+            end
+        end
+
+        local toggle = {}
+
+        function toggle:CreateToggle(name,callback)
+            callback = callback or function() end
+
+            local Toggle = Instance.new("TextButton")
+            local UICorner_5 = Instance.new("UICorner")
+            local UIStroke_4 = Instance.new("UIStroke")
+            local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+            local UIGradient = Instance.new("UIGradient")
+            local TextLabel_4 = Instance.new("TextLabel")
+
+            Toggle.Name = "Toggle"
+            Toggle.Parent = ScrollingFrame
+            Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Toggle.Size = UDim2.new(0, 144, 0, 26)
+            Toggle.Font = Enum.Font.SourceSans
+            Toggle.Text = ""
+            Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+            Toggle.TextSize = 14.000
+            Toggle.AutoButtonColor = false;
+            
+            UICorner_5.CornerRadius = UDim.new(0, 4)
+            UICorner_5.Parent = Toggle
+            
+            UIStroke_4.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            UIStroke_4.Color = Color3.fromRGB(202, 202, 202)
+            UIStroke_4.Thickness = 1.700
+            UIStroke_4.Parent = Toggle
+            
+            UIAspectRatioConstraint_2.Parent = Toggle
+            UIAspectRatioConstraint_2.AspectRatio = 5.533
+            
+            UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(172, 172, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(185, 219, 255))}
+            UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 1.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+            UIGradient.Parent = Toggle
+            
+            TextLabel_4.Parent = Toggle
+            TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel_4.BackgroundTransparency = 1.000
+            TextLabel_4.BorderSizePixel = 0
+            TextLabel_4.Position = UDim2.new(0.08637885, 0, 0.230769232, 0)
+            TextLabel_4.Size = UDim2.new(0, 109, 0, 14)
+            TextLabel_4.Font = Enum.Font.GothamMedium
+            TextLabel_4.Text = name
+            TextLabel_4.TextColor3 = Color3.fromRGB(152, 152, 152)
+            TextLabel_4.TextScaled = true
+            TextLabel_4.TextSize = 14.000
+            TextLabel_4.TextWrapped = true
+            TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+
+            local TValue = Instance.new("NumberValue")
+
+            TValue.Parent = UIGradient
+            TValue.Value = UIGradient.Transparency.Keypoints[1].Value
+            
+            TValue.Changed:Connect(function(value)
+                UIGradient.Transparency = NumberSequence.new(value)
+            end)
+
+            local db = false;
+
+            Toggle.MouseButton1Click:Connect(function()
+                if not db then
+                    tween(TValue,.2,{Value = 0})
+                    tween(UIStroke_4,.2,{Color = Color3.fromRGB(165, 187, 235)})
+                    tween(TextLabel_4,.2,{TextColor3 = Color3.fromRGB(255,255,255)})
+                else
+                    tween(TValue,.2,{Value = 1})
+                    tween(UIStroke_4,.2,{Color = Color3.fromRGB(202, 202, 202)})
+                    tween(TextLabel_4,.2,{TextColor3 = Color3.fromRGB(152, 152, 152)})
+                end
+
+                db = not db
+                callback(db)
+            end)
+        end
+
+        return toggle
+    end
+
+    return page
+end
+
+return library
