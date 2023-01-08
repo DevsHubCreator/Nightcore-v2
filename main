@@ -39,7 +39,6 @@ function library:CreateContainer()
     end)
 
     NightCorev2.Name = "NightCore v2"
-    NightCorev2.Visible = false
     NightCorev2.Parent = (game:GetService("CoreGui") or gethui())
     
     Container.Name = "Container"
@@ -163,6 +162,7 @@ function library:CreateContainer()
         Page.BorderSizePixel = 0
         Page.Position = UDim2.new(pagepos, 0, 0.255235583, 0) -- 0.0149365272
         Page.Size = UDim2.new(0, 152, 0, tonumber(pagesize)) -- 516
+        Page.Visible = false
         
         UIStroke_3.Color = Color3.fromRGB(175, 175, 175)
         UIStroke_3.Thickness = 2.500
