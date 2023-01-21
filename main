@@ -1,5 +1,4 @@
 local uis = game:GetService("UserInputService")
-local user
 
 if game:GetService("CoreGui"):FindFirstChild("NightCore v2") then
 	game:GetService("CoreGui"):FindFirstChild("NightCore v2"):Destroy()
