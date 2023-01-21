@@ -1,4 +1,5 @@
 local uis = game:GetService("UserInputService")
+local user
 
 if game:GetService("CoreGui"):FindFirstChild("NightCore v2") then
 	game:GetService("CoreGui"):FindFirstChild("NightCore v2"):Destroy()
@@ -368,67 +369,64 @@ function library:CreateContainer()
 				
 				for i,v in next,toggles do
 					local DropToggle = Instance.new("TextButton")
-					local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 					local TextLabel = Instance.new("TextLabel")
 					local Box = Instance.new("Frame")
-					local UIStroke = Instance.new("UIStroke")
 					local UICorner = Instance.new("UICorner")
+					local Box_2 = Instance.new("Frame")
 					local UICorner_2 = Instance.new("UICorner")
-					local UIStroke_2 = Instance.new("UIStroke")
+					local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
 					DropToggle.Name = "DropToggle"
 					DropToggle.Parent = DropdownContrainer
 					DropToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					DropToggle.BorderSizePixel = 0
 					DropToggle.Size = UDim2.new(0, 144, 0, 26)
+					DropToggle.ZIndex = 2
 					DropToggle.AutoButtonColor = false
 					DropToggle.Font = Enum.Font.SourceSans
 					DropToggle.Text = ""
 					DropToggle.TextColor3 = Color3.fromRGB(0, 0, 0)
 					DropToggle.TextSize = 14.000
-					DropToggle.ZIndex = 2
 					
-					UICorner.CornerRadius = UDim.new(0, 4)
-					UICorner.Parent = DropToggle
-
-					UIAspectRatioConstraint.Parent = DropToggle
-					UIAspectRatioConstraint.AspectRatio = 5.533
-
 					TextLabel.Parent = DropToggle
 					TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
 					TextLabel.BorderSizePixel = 0
-					TextLabel.Position = UDim2.new(0.08637885, 0, 0.230769232, 0)
-					TextLabel.Size = UDim2.new(0, 109, 0, 14)
+					TextLabel.Position = UDim2.new(0.0377175286, 0, 0.269230783, 0)
+					TextLabel.Size = UDim2.new(0, 100, 0, 14)
+					TextLabel.ZIndex = 2
 					TextLabel.Font = Enum.Font.GothamMedium
 					TextLabel.Text = v
-					TextLabel.TextColor3 = Color3.fromRGB(152, 152, 152)
+					TextLabel.TextColor3 = Color3.fromRGB(115, 115, 115)
 					TextLabel.TextScaled = true
 					TextLabel.TextSize = 14.000
 					TextLabel.TextWrapped = true
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-					TextLabel.ZIndex = 2
 
 					Box.Name = "Box"
 					Box.Parent = DropToggle
-					Box.BackgroundColor3 = Color3.fromRGB(82, 84, 100)
+					Box.BackgroundColor3 = Color3.fromRGB(94, 94, 94)
 					Box.BorderSizePixel = 0
-					Box.Position = UDim2.new(0.841145635, 0, 0.192307711, 0)
-					Box.Size = UDim2.new(0, 15, 0, 15)
+					Box.Position = UDim2.new(0.795443714, 0, 0.269230992, 0)
+					Box.Size = UDim2.new(0, 20, 0, 12)
 					Box.ZIndex = 2
 
-					UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-					UIStroke.Color = Color3.fromRGB(156, 156, 156)
-					UIStroke.Thickness = 1.700
-					UIStroke.Parent = Box
-
-					UICorner.CornerRadius = UDim.new(0, 4)
+					UICorner.CornerRadius = UDim.new(1, 0)
 					UICorner.Parent = Box
 
-					UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-					UIStroke_2.Color = Color3.fromRGB(202, 202, 202)
-					UIStroke_2.Thickness = 1.500
-					UIStroke_2.Parent = DropToggle
+					Box_2.Name = "Box"
+					Box_2.Parent = Box
+					Box_2.BackgroundColor3 = Color3.fromRGB(17, 17, 17)
+					Box_2.BorderSizePixel = 0
+					Box_2.Position = UDim2.new(0.100000001, 0, 0.200000003, 0)
+					Box_2.Size = UDim2.new(0, 7, 0, 7)
+					Box_2.ZIndex = 2
+
+					UICorner_2.CornerRadius = UDim.new(1, 0)
+					UICorner_2.Parent = Box_2
+
+					UIAspectRatioConstraint.Parent = DropToggle
+					UIAspectRatioConstraint.AspectRatio = 5.533
 					
 					DropYSize = DropYSize + 30
 					
@@ -439,9 +437,11 @@ function library:CreateContainer()
 						user = "Toggle"
 						
 						if not IsToggled then
-							tween(Box,.2,{BackgroundColor3 = Color3.fromRGB(143, 177, 255)})
+							tween(Box_2,.2,{BackgroundColor3 = Color3.fromRGB(222,222,222)})
+							tween(Box_2,.2,{Position = UDim2.new(0.5, 0, 0.200000003, 0)})
 						else
-							tween(Box,.2,{BackgroundColor3 = Color3.fromRGB(82, 84, 100)})
+							tween(Box_2,.2,{BackgroundColor3 = Color3.fromRGB(17, 17, 17)})
+							tween(Box_2,.2,{Position = UDim2.new(0.100000001, 0, 0.200000003, 0)})
 						end
 						
 						IsToggled = not IsToggled
@@ -451,14 +451,13 @@ function library:CreateContainer()
 				
 				for i,v in next,sliders do
 					local Slider = Instance.new("Frame")
-					local UICorner = Instance.new("UICorner")
-					local UIStroke = Instance.new("UIStroke")
 					local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 					local TextLabel = Instance.new("TextLabel")
 					local SliderButton = Instance.new("TextButton")
-					local UIStroke_2 = Instance.new("UIStroke")
-					local UICorner_2 = Instance.new("UICorner")
+					local UICorner = Instance.new("UICorner")
 					local SliderInner = Instance.new("Frame")
+					local UICorner_2 = Instance.new("UICorner")
+					local Background = Instance.new("Frame")
 					local UICorner_3 = Instance.new("UICorner")
 					local SliderText = Instance.new("TextLabel")
 					
@@ -469,14 +468,6 @@ function library:CreateContainer()
 					Slider.Size = UDim2.new(0, 144, 0, 26)
 					Slider.ZIndex = 2
 
-					UICorner.CornerRadius = UDim.new(0, 4)
-					UICorner.Parent = Slider
-
-					UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-					UIStroke.Color = Color3.fromRGB(202, 202, 202)
-					UIStroke.Thickness = 1.500
-					UIStroke.Parent = Slider
-
 					UIAspectRatioConstraint.Parent = Slider
 					UIAspectRatioConstraint.AspectRatio = 5.533
 
@@ -484,12 +475,12 @@ function library:CreateContainer()
 					TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
 					TextLabel.BorderSizePixel = 0
-					TextLabel.Position = UDim2.new(0.08637885, 0, 0.230769232, 0)
-					TextLabel.Size = UDim2.new(0, 53, 0, 14)
+					TextLabel.Position = UDim2.new(0.0377175286, 0, 0.269230783, 0)
+					TextLabel.Size = UDim2.new(0, 43, 0, 12)
 					TextLabel.ZIndex = 2
 					TextLabel.Font = Enum.Font.GothamMedium
 					TextLabel.Text = v
-					TextLabel.TextColor3 = Color3.fromRGB(152, 152, 152)
+					TextLabel.TextColor3 = Color3.fromRGB(115, 115, 115)
 					TextLabel.TextScaled = true
 					TextLabel.TextSize = 14.000
 					TextLabel.TextWrapped = true
@@ -497,77 +488,86 @@ function library:CreateContainer()
 
 					SliderButton.Name = "SliderButton"
 					SliderButton.Parent = Slider
-					SliderButton.BackgroundColor3 = Color3.fromRGB(212, 212, 212)
+					SliderButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					SliderButton.BorderSizePixel = 0
-					SliderButton.Position = UDim2.new(0.396242112, 0, 0.384615391, 0)
-					SliderButton.Size = UDim2.new(0, 70, 0, 5)
+					SliderButton.Position = UDim2.new(0.0379999988, 0, 0.800000012, 0)
+					SliderButton.Size = UDim2.new(0, 129, 0, 4)
 					SliderButton.ZIndex = 2
 					SliderButton.Font = Enum.Font.SourceSans
 					SliderButton.Text = ""
 					SliderButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 					SliderButton.TextSize = 14.000
+					SliderButton.AutoButtonColor = false
 
-					UIStroke_2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-					UIStroke_2.Color = Color3.fromRGB(202, 202, 202)
-					UIStroke_2.Thickness = 1.500
-					UIStroke_2.Parent = SliderButton
-
-					UICorner_2.CornerRadius = UDim.new(0, 4)
-					UICorner_2.Parent = SliderButton
+					UICorner.CornerRadius = UDim.new(1, 0)
+					UICorner.Parent = SliderButton
 
 					SliderInner.Name = "SliderInner"
 					SliderInner.Parent = SliderButton
-					SliderInner.BackgroundColor3 = Color3.fromRGB(156, 187, 255)
+					SliderInner.BackgroundColor3 = Color3.fromRGB(151, 175, 255)
 					SliderInner.BorderSizePixel = 0
-					SliderInner.Position = UDim2.new(0.00606024591, 0, 0, 0)
-					SliderInner.Size = UDim2.new(0, 4, 0, 5)
-					SliderInner.ZIndex = 2
+					SliderInner.Position = UDim2.new(0.00606025057, 0, 0, 0)
+					SliderInner.Size = UDim2.new(0, 5, 0, 2)
+					SliderInner.ZIndex = 3
 
-					UICorner_3.CornerRadius = UDim.new(0, 4)
-					UICorner_3.Parent = SliderInner
+					UICorner_2.CornerRadius = UDim.new(1, 0)
+					UICorner_2.Parent = SliderInner
+
+					Background.Name = "Background"
+					Background.Parent = SliderButton
+					Background.BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+					Background.BorderSizePixel = 0
+					Background.Position = UDim2.new(0.00606028223, 0, 0, 0)
+					Background.Size = UDim2.new(0, 128, 0, 2)
+					Background.ZIndex = 2
+
+					UICorner_3.CornerRadius = UDim.new(1, 0)
+					UICorner_3.Parent = Background
 
 					SliderText.Name = "SliderText"
 					SliderText.Parent = Slider
 					SliderText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					SliderText.BackgroundTransparency = 1.000
 					SliderText.BorderSizePixel = 0
-					SliderText.Position = UDim2.new(0.913610756, 0, 0.230769217, 0)
-					SliderText.Size = UDim2.new(0, 8, 0, 14)
+					SliderText.Position = UDim2.new(0.746771991, 0, 0.269230783, 0)
+					SliderText.Size = UDim2.new(0, 27, 0, 9)
 					SliderText.ZIndex = 2
 					SliderText.Font = Enum.Font.GothamMedium
 					SliderText.Text = "0"
-					SliderText.TextColor3 = Color3.fromRGB(152, 152, 152)
+					SliderText.TextColor3 = Color3.fromRGB(111, 111, 111)
 					SliderText.TextScaled = true
 					SliderText.TextSize = 14.000
 					SliderText.TextWrapped = true
-					SliderText.TextXAlignment = Enum.TextXAlignment.Left
+					SliderText.TextXAlignment = Enum.TextXAlignment.Right
 					
 					DropYSize = DropYSize + 30
 					
 					SliderButton.MouseButton1Down:Connect(function()
 						
+						print("ok")
+						
 						user = "Slider"
 						
-						Value = math.floor((((tonumber(sliderMax) - tonumber(sliderMin)) / 70) * SliderInner.AbsoluteSize.X) + tonumber(sliderMin)) or 0
+						Value = math.floor((((tonumber(sliderMax) - tonumber(sliderMin)) / 129) * SliderInner.AbsoluteSize.X) + tonumber(sliderMin)) or 0
 						pcall(function()
 							callback(Value)
 						end)
-						SliderInner.Size = UDim2.new(0, math.clamp(mouse.X - SliderInner.AbsolutePosition.X, 0, 70), 0, 5)
+						SliderInner.Size = UDim2.new(0, math.clamp(mouse.X - SliderInner.AbsolutePosition.X, 0, 129), 0, 2)
 						moveconnection = mouse.Move:Connect(function()
 							SliderText.Text = Value
-							Value = math.floor((((tonumber(sliderMax) - tonumber(sliderMin)) / 70) * SliderInner.AbsoluteSize.X) + tonumber(sliderMin))
+							Value = math.floor((((tonumber(sliderMax) - tonumber(sliderMin)) / 129) * SliderInner.AbsoluteSize.X) + tonumber(sliderMin))
 							pcall(function()
 								callback(Value)
 							end)
-							SliderInner.Size = UDim2.new(0, math.clamp(mouse.X - SliderInner.AbsolutePosition.X, 0, 70), 0, 5)
+							SliderInner.Size = UDim2.new(0, math.clamp(mouse.X - SliderInner.AbsolutePosition.X, 0, 129), 0, 2)
 						end)
 						releaseconnection = uis.InputEnded:Connect(function(Mouse)
 							if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-								Value = math.floor((((tonumber(sliderMax) - tonumber(sliderMin)) / 70) * SliderInner.AbsoluteSize.X) + tonumber(sliderMin))
+								Value = math.floor((((tonumber(sliderMax) - tonumber(sliderMin)) / 129) * SliderInner.AbsoluteSize.X) + tonumber(sliderMin))
 								pcall(function()
 									callback(Value)
 								end)
-								SliderInner.Size = UDim2.new(0, math.clamp(mouse.X - SliderInner.AbsolutePosition.X, 0, 70), 0, 5)
+								SliderInner.Size = UDim2.new(0, math.clamp(mouse.X - SliderInner.AbsolutePosition.X, 0, 129), 0, 2)
 								moveconnection:Disconnect()
 								releaseconnection:Disconnect()
 							end
